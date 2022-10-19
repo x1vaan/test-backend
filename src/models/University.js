@@ -1,16 +1,20 @@
 const { Schema, model } = require('mongoose');
 
 const universitySchema = new Schema({
-   name: String,
+   name: {
+      type:String,
+   },
    country: String,
-   state_province: {
+   'state-province': {
       type: String,
       default : null
    },
-   web_pages: String,
+   web_pages: [{
+      type: String,
+   }],
    alpha_two_code: String,
    domains: [{
-    type: String
+    type: String,
    }]
 });
 

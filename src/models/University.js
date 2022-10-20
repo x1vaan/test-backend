@@ -3,8 +3,12 @@ const { Schema, model } = require('mongoose');
 const universitySchema = new Schema({
    name: {
       type:String,
+      required:true
    },
-   country: String,
+   country: {
+      type:String,
+      required:true
+   },
    'state-province': {
       type: String,
       default : null
@@ -18,4 +22,5 @@ const universitySchema = new Schema({
    }]
 });
 
+universitySchema.index({name: 1, country: 1, 'state-province': 1}, { unique : true})
 module.exports = model('University', universitySchema);

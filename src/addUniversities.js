@@ -10,7 +10,7 @@ const axios = require('axios');
      universities.push(response.data)
     }
    universities = universities.flat()
-    await University.insertMany(universities)
+   await University.insertMany(universities, {ordered : false})
     } catch (error) {
         console.log(error.message)
     }
